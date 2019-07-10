@@ -1,13 +1,17 @@
 pipeline {
     agent any 
-
-
     stages {
         stage('Build Assets') {
             agent any 
 
             steps {
                 echo 'Building Assets'
+            }
+        }
+		stage('Hello World Job') {
+		    agent any 
+            steps {
+                build job: 'Hello World', parameters: [string(name: 'Steve')]
             }
         }
         stage('Test') {
